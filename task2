@@ -1,0 +1,57 @@
+#include <iostream>
+#include <cmath>
+
+int main()
+{
+    setlocale(LC_ALL, "RU"); // українського кодування на жаль не знайшов 
+    
+    // варіант 6
+
+    int a, b, c;
+    
+    std::cout << "Введіть значення сторони А:";
+    std::cin >> a;
+    std::cout << "\n";
+
+    std::cout << "Введіть значення сторони B:";
+    std::cin >> b;
+    std::cout << "\n";
+
+    std::cout << "Введіть значення сторони C:";
+    std::cin >> c;
+    std::cout << "\n";
+
+    std::string angle;
+    std::cout << "Який кут бажаєте знаййти?(АВС,АСВ,САВ):";
+    std::cin >> angle;
+
+    int R, p;
+
+    p = (a + b + c) / 2;
+    R = (a * b * c) / (4 * sqrt(p * (p - a) * (p - b) * (p - c)));
+
+    double cosinus, sinus, answ;
+    if (angle == "ABC") {
+        cosinus = (pow(a, 2) + pow(c, 2) - pow(b, 2) / (2 * a * c));
+        std::cout << "Косинус кута = " << cosinus << "\n";
+        sinus = b / (2 * R);
+        std::cout << "Синус кута =" << sinus;
+    }
+    else if (angle == "ACB") {
+        cosinus = (pow(b, 2) + pow(a, 2) - pow(c, 2) / (2 * a * b));
+        std::cout << "Косинус кута = " << cosinus << "\n";
+        sinus = c / (2 * R);
+        std::cout << "Синус кута =" << sinus;
+    }
+    else if (angle == "CAB") {
+        cosinus = (pow(b, 2) + pow(c, 2) - pow(a, 2) / (2 * c * b));
+        std::cout << "Косинус кута = " << cosinus << "\n";
+        sinus = a / (2 * R);
+        std::cout << "Синус кута =" << sinus;
+    }
+    else {
+        std::cout << "Такого кута в нашому трикутнику не існує";
+    }
+
+    return 0;
+}
