@@ -1,0 +1,31 @@
+#include <iostream>
+#include <ctime>
+
+int main()
+{
+    setlocale(LC_ALL, "RU"); // українського кодування на жаль не знайшов 
+    
+    srand(time(NULL));
+    int randNumb = 1 + (rand() % 4);
+    int numbers[5];
+
+    int a, b;
+    std::cout << "Введіть єдине унікальне число:";
+    std::cin >> a;
+    std::cout << "Введіть число, якому будуть дорівнювати інші 4:";
+    std::cin >> b;
+
+    for (int i = 0; i < 5; i++) {
+        numbers[i] = b;
+    }
+    numbers[randNumb] = a;
+
+    for (int i = 0; i < 5; i++) {
+        if (numbers[i] != numbers[i+1] && numbers[i] != numbers[i-1]) {
+            std::cout << "Наше унікальне число це " << numbers[i] << " і має номер " << i;
+        }
+     
+    }
+
+    return 0;
+}
