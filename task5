@@ -1,0 +1,28 @@
+#include <iostream>
+
+
+int main()
+{
+    setlocale(LC_ALL, "RU"); // українського кодування на жаль не знайшов 
+    
+    int x, y; 
+    std::cout << "Введіть значення х=";
+    std::cin >> x;
+    std::cout << "Введіть значення y=";
+    std::cin >> y;
+
+    if (x > 0 && y > 0) {
+        std::cout << "Ваша точка в I чверті";
+    }
+    if (x < 0 && y > 0) {
+        std::cout << "Ваша точка в II чверті";
+    }
+    if (x < 0 && y < 0) {
+        std::cout << "Ваша точка в III чверті";
+    }
+    if (x > 0 && y < 0) {
+        std::cout << "Ваша точка в IV чверті";
+    }
+
+    return 0;
+}
